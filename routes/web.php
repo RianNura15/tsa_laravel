@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ArticleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,20 +21,26 @@ use App\Http\Controllers\PageController;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return "Selamat Datang";
-});
+// Route::get('/', function () {
+//     return "Selamat Datang";
+// });
 
-Route::get('/about', function () {
-    return "Nama: Rian Nura Ari Sucipto <br> NIM: 1931730129 <br> Kelas: TSA WEB - B";
-});
+// Route::get('/about', function () {
+//     return "Nama: Rian Nura Ari Sucipto <br> NIM: 1931730129 <br> Kelas: TSA WEB - B";
+// });
 
-Route::get('/articles/{id}', function ($id) {
-    return "Halaman artikel dengan ID ".$id;
-});
+// Route::get('/articles/{id}', function ($id) {
+//     return "Halaman artikel dengan ID ".$id;
+// });
 
 // Route::get('/', [PageController::class, 'index']);
 
 // Route::get('/about', [PageController::class, 'about']);
 
 // Route::get('/articles/{id}', [PageController::class, 'articles']);
+
+Route::get('/', [HomeController::class, 'index']);
+
+Route::get('/about', [AboutController::class, 'index']);
+
+Route::get('/articles/{id}', [ArticleController::class, 'show']);
